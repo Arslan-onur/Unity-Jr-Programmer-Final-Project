@@ -11,7 +11,7 @@ public class Platform1Controller : MonoBehaviour
     private float shakeOnX = 4f;
     private float shakeOnY = 4f;
 
-    [SerializeField]private float downSpeed = 1f;
+
     void Start()
     {
         platform1Rb = GetComponent<Rigidbody>();
@@ -20,7 +20,7 @@ public class Platform1Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * downSpeed * Time.deltaTime);
+
     }
 
     void OnCollisionEnter(Collision collision)
