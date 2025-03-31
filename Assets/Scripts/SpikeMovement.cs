@@ -6,6 +6,8 @@ public class SpikeMovement : MonoBehaviour
 
     float moveSpeedSpike = 2f;
 
+    GameManager gameManager;
+
  // Hareket hızı
     float maxDistance = 0.7f; // Maksimum hareket mesafesi
     Vector3 startPosition; // Başlangıç pozisyonu
@@ -14,6 +16,8 @@ public class SpikeMovement : MonoBehaviour
     {
         platform3Controller = GetComponentInParent<Platform3Controller>();
         startPosition = transform.localPosition;
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -41,6 +45,7 @@ public class SpikeMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {   
             Destroy(other.gameObject);
+            gameManager.GameOver();
         }
     }
 }
